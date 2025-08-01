@@ -1,0 +1,29 @@
+name: ArchLint
+description: Run an architectural review using OpenAI on all Python files in a repo
+author: uphar
+
+inputs:
+  project-root:
+    description: 'Root directory to start linting from'
+    required: false
+    default: '.'
+
+  output:
+    description: 'Output file for the architectural report'
+    required: false
+    default: 'architectural_review.md'
+
+  openai-api-key:
+    description: 'Your OpenAI API key'
+    required: true
+
+runs:
+  using: "composite"
+  steps:
+    - run: |
+        python ${{ github.action_path }}/archlint/architect-reviewer.py \
+          --project-root ${{ inputs.project-root }} \
+          --output ${{ inputs.output }}
+      shell: bash
+      env:
+        OPENAI_API_KEY: ${{ inputs.openai-api-key }}
