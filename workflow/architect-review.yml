@@ -1,0 +1,45 @@
+name: Architectural Linter
+
+on:
+  pull_request:
+    branches: [ main ]
+  push:
+    branches: [ main ]
+
+jobs:
+  review:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install Dependencies
+        run: |
+          pip install -r requirements.txt
+
+      - name: Run Architectural Linter
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        run: |
+          python architect-reviewer.py --project-root . --output architectural_review.md
+
+      - name: Upload Report Artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: architectural_review
+          path: architectural_review.md
+
+      - name: Fail if score too low
+        run: |
+          SCORE=$(grep -oE '[0-9]{1,3} / 100' architectural_review.md | grep -oE '[0-9]{1,3}')
+          echo "Found score: $SCORE"
+          if [ "$SCORE" -lt 70 ]; then
+            echo "Architectural score too low ($SCORE). Failing build."
+            exit 1
+          fi
