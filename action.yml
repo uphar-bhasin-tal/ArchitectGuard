@@ -27,7 +27,7 @@ runs:
       shell: bash
     - run: |
         python ${{ github.action_path }}/arc_lint.py \
-          --project-root ${{ inputs.project-root }} \
+          --project-root ${{ github.workspace }} \
           --output ${{ inputs.output }}
       shell: bash
       env:
