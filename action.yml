@@ -21,7 +21,7 @@ runs:
   using: "composite"
   steps:
     - run: |
-        python ${{ github.action_path }}/archlint/architect-reviewer.py \
+        python ${{ github.action_path }}/app.py \
           --project-root ${{ inputs.project-root }} \
           --output ${{ inputs.output }}
       shell: bash
