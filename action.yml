@@ -26,7 +26,7 @@ runs:
         pip install -r ${{ github.action_path }}/requirements.txt
       shell: bash
     - run: |
-        python ${{ github.action_path }}/app.py \
+        python ${{ github.action_path }}/arc_lint.py \
           --project-root ${{ inputs.project-root }} \
           --output ${{ inputs.output }}
       shell: bash
