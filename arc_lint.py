@@ -67,10 +67,15 @@ def collect_project_files(root: str, exclude_dirs={"__pycache__", ".git", "venv"
 
 def read_files(file_paths: List[str]) -> str:
     contents = []
+    count = 0
     for file in file_paths:
         try:
             with open(file, 'r') as f:
-                contents.append(f"# File: {file}\n" + f.read())
+                content = f"# File: {file}\n" + f.read()
+                count+=len()
+                if count>650000:
+                    break
+                contents.append(content)
         except Exception as e:
             print(f"Warning: Could not read file {file}: {e}")
     return "\n\n".join(contents)
