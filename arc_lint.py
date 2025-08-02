@@ -60,9 +60,6 @@ def collect_project_files(root: str, exclude_dirs={"__pycache__", ".git", "venv"
     for path in Path(root).rglob("*"):
         if not any(part in exclude_dirs for part in path.parts):
             files.append(str(path))
-    for path in Path(root).rglob("*.go"):
-        if not any(part in exclude_dirs for part in path.parts):
-            files.append(str(path))
     return files
 
 def read_files(file_paths: List[str]) -> str:
