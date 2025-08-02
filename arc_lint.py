@@ -57,7 +57,10 @@ Remember: Good architecture enables change. Flag anything that makes future chan
 def collect_project_files(root: str, exclude_dirs={"__pycache__", ".git", "venv"}) -> List[str]:
     """Collect all files in project"""
     files = []
-    for path in Path(root).rglob("*"):
+    for path in Path(root).rglob("*.py"):
+        if not any(part in exclude_dirs for part in path.parts):
+            files.append(str(path))
+    for path in Path(root).rglob("*.go"):
         if not any(part in exclude_dirs for part in path.parts):
             files.append(str(path))
     return files
