@@ -1,22 +1,22 @@
 project_name: ArchitectGuard
-core_responsibilities:
-  - pattern_adherence
-  - solid_compliance
-  - dependency_analysis
-  - abstraction_levels
-  - future_proofing 
-  - architectural_quality_assessment
-  - security_considerations
-  - performance_implications
-  - modularity_and_coupling
-  - documentation_and_clarity
-  - scalability_and_extensibility
-  - error_handling_and_resilience
-  - cross_cutting_concerns
-  - architectural_review
-  - architectural_impact_assessment
-  - architectural_quality_score
-  - testing_and_production_readiness
+# core_responsibilities:
+#   - pattern_adherence
+#   - solid_compliance
+#   - dependency_analysis
+#   - abstraction_levels
+#   - future_proofing 
+#   - architectural_quality_assessment
+#   - security_considerations
+#   - performance_implications
+#   - modularity_and_coupling
+#   - documentation_and_clarity
+#   - scalability_and_extensibility
+#   - error_handling_and_resilience
+#   - cross_cutting_concerns
+#   - architectural_review
+#   - architectural_impact_assessment
+#   - architectural_quality_score
+#   - testing_and_production_readiness
 
 review_guidelines:
   pattern_checks:
@@ -26,11 +26,19 @@ review_guidelines:
     - assess_abstraction_levels
     - consider_future_proofing
   scoring:
+    # Define scoring criteria, note range is required do not remove
     range: [0, 100]
     criteria:
       - architectural_quality
       - specific_violations
       - refactoring_suggestions
+  # TopicOrder:
+  #   - quality_score
+  #   - architectural_quality
+  #   - impact_assessment
+  #   - specific_violations
+  #   - refactoring_suggestions
+  #   - review_checklist
   focus_areas:
     - modularity
     - scalability
@@ -123,3 +131,4 @@ review_report_template:
         - scalability
         - security
         - future_proofing
+        
