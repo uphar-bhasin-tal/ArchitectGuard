@@ -49,7 +49,7 @@ Output Format:
 - Specific violations found (if any) with path and violation name
 - Recommended refactoring (if needed) with path and name
 - Long-term implications of the changes
-- Final architectural quality score (0-100)
+- Final architectural quality score (0-100) considering above mentioned core responsibilities 
 
 Remember: Good architecture enables change. Flag anything that makes future changes harder.
 """
