@@ -1,0 +1,19 @@
+rules:
+  - name: Deprecated Modules Check
+    icontains: "cgi"
+
+  - name: Old Function Check
+    icontains: "old_calculation"
+
+  - name: Must Have Score
+    icontains: "Overall Architectural Score: 65 / 100"
+
+  - name: Must Have Impact
+    icontains: "Impact Assessment"
+
+  # Performance and safety checks
+  - name: Performance SLA
+    icontains: "Response Time < 15s"
+
+  - name: Safety Check - No Ambiguity
+    regex: "^(?!.*(maybe|TBD|\\?{3})).*$"

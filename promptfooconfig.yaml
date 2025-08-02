@@ -1,0 +1,113 @@
+prompts:
+- '{{ run_output }}'
+providers:
+- id: echo
+tests:
+- assert:
+  - type: equals
+    value: 'Validating: architectural_review.md :: Deprecated Modules Check'
+  name: 'architectural_review.md :: Deprecated Modules Check'
+  vars:
+    run_output: 'Validating: architectural_review.md :: Deprecated Modules Check'
+- assert:
+  - type: equals
+    value: 'Validating: architectural_review.md :: Old Function Check'
+  name: 'architectural_review.md :: Old Function Check'
+  vars:
+    run_output: 'Validating: architectural_review.md :: Old Function Check'
+- assert:
+  - type: equals
+    value: __FAIL__
+  name: 'architectural_review.md :: Must Have Score'
+  vars:
+    run_output: 'Validating: architectural_review.md :: Must Have Score'
+- assert:
+  - type: equals
+    value: 'Validating: architectural_review.md :: Must Have Impact'
+  name: 'architectural_review.md :: Must Have Impact'
+  vars:
+    run_output: 'Validating: architectural_review.md :: Must Have Impact'
+- assert:
+  - type: equals
+    value: __FAIL__
+  name: 'architectural_review.md :: Performance SLA'
+  vars:
+    run_output: 'Validating: architectural_review.md :: Performance SLA'
+- assert:
+  - type: equals
+    value: 'Validating: architectural_review.md :: Safety Check - No Ambiguity'
+  name: 'architectural_review.md :: Safety Check - No Ambiguity'
+  vars:
+    run_output: 'Validating: architectural_review.md :: Safety Check - No Ambiguity'
+- assert:
+  - type: equals
+    value: 'Validating: architectural_review2.md :: Deprecated Modules Check'
+  name: 'architectural_review2.md :: Deprecated Modules Check'
+  vars:
+    run_output: 'Validating: architectural_review2.md :: Deprecated Modules Check'
+- assert:
+  - type: equals
+    value: 'Validating: architectural_review2.md :: Old Function Check'
+  name: 'architectural_review2.md :: Old Function Check'
+  vars:
+    run_output: 'Validating: architectural_review2.md :: Old Function Check'
+- assert:
+  - type: equals
+    value: __FAIL__
+  name: 'architectural_review2.md :: Must Have Score'
+  vars:
+    run_output: 'Validating: architectural_review2.md :: Must Have Score'
+- assert:
+  - type: equals
+    value: 'Validating: architectural_review2.md :: Must Have Impact'
+  name: 'architectural_review2.md :: Must Have Impact'
+  vars:
+    run_output: 'Validating: architectural_review2.md :: Must Have Impact'
+- assert:
+  - type: equals
+    value: __FAIL__
+  name: 'architectural_review2.md :: Performance SLA'
+  vars:
+    run_output: 'Validating: architectural_review2.md :: Performance SLA'
+- assert:
+  - type: equals
+    value: 'Validating: architectural_review2.md :: Safety Check - No Ambiguity'
+  name: 'architectural_review2.md :: Safety Check - No Ambiguity'
+  vars:
+    run_output: 'Validating: architectural_review2.md :: Safety Check - No Ambiguity'
+- assert:
+  - type: equals
+    value: 'Validating: architectural_review4.md :: Deprecated Modules Check'
+  name: 'architectural_review4.md :: Deprecated Modules Check'
+  vars:
+    run_output: 'Validating: architectural_review4.md :: Deprecated Modules Check'
+- assert:
+  - type: equals
+    value: 'Validating: architectural_review4.md :: Old Function Check'
+  name: 'architectural_review4.md :: Old Function Check'
+  vars:
+    run_output: 'Validating: architectural_review4.md :: Old Function Check'
+- assert:
+  - type: equals
+    value: 'Validating: architectural_review4.md :: Must Have Score'
+  name: 'architectural_review4.md :: Must Have Score'
+  vars:
+    run_output: 'Validating: architectural_review4.md :: Must Have Score'
+- assert:
+  - type: equals
+    value: 'Validating: architectural_review4.md :: Must Have Impact'
+  name: 'architectural_review4.md :: Must Have Impact'
+  vars:
+    run_output: 'Validating: architectural_review4.md :: Must Have Impact'
+- assert:
+  - type: equals
+    value: __FAIL__
+  name: 'architectural_review4.md :: Performance SLA'
+  vars:
+    run_output: 'Validating: architectural_review4.md :: Performance SLA'
+- assert:
+  - type: equals
+    value: 'Validating: architectural_review4.md :: Safety Check - No Ambiguity'
+  name: 'architectural_review4.md :: Safety Check - No Ambiguity'
+  vars:
+    run_output: 'Validating: architectural_review4.md :: Safety Check - No Ambiguity'
