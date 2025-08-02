@@ -55,9 +55,12 @@ Remember: Good architecture enables change. Flag anything that makes future chan
 """
 
 def collect_project_files(root: str, exclude_dirs={"__pycache__", ".git", "venv"}) -> List[str]:
-    """Collect all Python files in project"""
+    """Collect all files in project"""
     files = []
     for path in Path(root).rglob("*.py"):
+        if not any(part in exclude_dirs for part in path.parts):
+            files.append(str(path))
+    for path in Path(root).rglob("*.go"):
         if not any(part in exclude_dirs for part in path.parts):
             files.append(str(path))
     return files
@@ -94,7 +97,7 @@ def extract_score_from_review(review: str) -> int:
 def main(project_root: str, output_file: str):
     print("Collecting project files...")
     files = collect_project_files(project_root)
-    print(f"Found {len(files)} Python files.")
+    print(f"Found {len(files)} files.")
 
     print("Reading files...")
     project_code = read_files(files)
