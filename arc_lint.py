@@ -45,9 +45,9 @@ Focus Areas:
 
 Output Format:
 - Architectural impact assessment (High/Medium/Low)
-- Pattern compliance checklist  with path and violation name
-- Specific violations found (if any) with path and violation name
-- Recommended refactoring (if needed) with path and name
+- Pattern compliance checklist  with path and compliance description
+- Specific violations found (if any) with path and violation description
+- Recommended refactoring (if needed) with path and description
 - Long-term implications of the changes
 - Final architectural quality score (0-100) considering above mentioned core responsibilities 
 
