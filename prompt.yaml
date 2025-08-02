@@ -1,0 +1,125 @@
+project_name: ArchitectGuard
+core_responsibilities:
+  - pattern_adherence
+  - solid_compliance
+  - dependency_analysis
+  - abstraction_levels
+  - future_proofing 
+  - architectural_quality_assessment
+  - security_considerations
+  - performance_implications
+  - modularity_and_coupling
+  - documentation_and_clarity
+  - scalability_and_extensibility
+  - error_handling_and_resilience
+  - cross_cutting_concerns
+  - architectural_review
+  - architectural_impact_assessment
+  - architectural_quality_score
+  - testing_and_production_readiness
+
+review_guidelines:
+  pattern_checks:
+    - ensure_architectural_pattern_adherence
+    - identify_and_flag_antipatterns
+    - evaluate_dependency_management
+    - assess_abstraction_levels
+    - consider_future_proofing
+  scoring:
+    range: [0, 100]
+    criteria:
+      - architectural_quality
+      - specific_violations
+      - refactoring_suggestions
+  focus_areas:
+    - modularity
+    - scalability
+    - extensibility
+    - security_best_practices
+    - performance_implications
+    - error_handling
+    - cross_cutting_concerns
+    - test_coverage
+
+architectural_review_process:
+  steps:
+    - analyze_pattern_adherence
+    - identify_antipatterns
+    - evaluate_dependencies
+    - assess_abstractions
+    - consider_future_proofing
+    - provide_quality_score
+    - highlight_violations
+    - analyze_long_term_implications
+    - review_modularity
+    - verify_security_practices
+    - evaluate_performance
+    - assess_error_handling
+    - review_cross_cutting_concerns
+    - verify_production_readiness
+    - check_test_cases
+
+review_checklist:
+  technical:
+    - pattern_adherence
+    - solid_principles
+    - dependency_management
+    - abstraction_levels
+    - future_proofing
+  security_and_performance:
+    - security_best_practices
+    - performance_implications
+  design:
+    - modularity_and_coupling
+    - documentation_and_clarity
+    - scalability_and_extensibility
+  reliability:
+    - error_handling
+    - resilience
+    - cross_cutting_concerns
+  quality:
+    - production_readiness
+    - test_coverage
+
+focus_areas:
+  - service_boundaries_and_responsibilities
+  - data_flow_and_coupling
+  - domain_driven_design_consistency
+  - performance_implications
+  - security_boundaries
+
+review_report_template:
+  architectural_review:
+    overall_assessment:
+      quality_score: [0-100]
+      impact_assessment: [High, Medium, Low]
+      summary: string
+    detailed_findings:
+      - title: string
+        location: string
+        description: string
+        suggestion: string
+    test_review:
+      coverage: string
+      edge_cases: string
+      structure: string
+    security_review:
+      vulnerabilities: string
+      data_validation: string
+    performance_review:
+      bottlenecks: string
+      inefficiencies: string
+    cross_cutting_concerns:
+      logging: string
+      monitoring: string
+      configuration: string
+    final_recommendation:
+      type: [Approve, Approve with Comments, Changes Required]
+      focus_points:
+        - pattern_adherence
+        - solid_principles
+        - modularity
+        - abstraction
+        - scalability
+        - security
+        - future_proofing

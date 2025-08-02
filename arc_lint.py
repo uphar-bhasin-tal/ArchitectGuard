@@ -15,6 +15,7 @@ import argparse
 from typing import List
 from pathlib import Path
 import re
+from generate_prompt import load_yaml_config,generate_prompt
 
 # Load from environment (expected to be set in GitHub secrets)
 
@@ -132,15 +133,23 @@ def read_files(file_paths: List[str]) -> str:
             print(f"Warning: Could not read file {file}: {e}")
     return "\n\n".join(contents)
 
-def analyze_code_with_openai(code: str) -> str:
+def analyze_code_with_openai(code: str, prompt: str) -> str:
     """Send files as context to OpenAI for architectural review"""
-    response = client.chat.completions.create(model="gpt-4o",
-    messages=[
-        {"role": "system", "content": SYSTEM_PROMPT},
-        {"role": "user", "content": code},
-    ],
-    temperature=0.2,
-    max_tokens=4096)
+    try:
+        response = client.chat.completions.create(model="gpt-4o",
+        messages=[
+            {"role": "system", "content": prompt},
+            {"role": "user", "content": code},
+        ],
+        temperature=0.2,
+        max_tokens=4096)
+    except Exception as e:
+        print(f"Error communicating with OpenAI: {e}")
+        return "Error generating review"
+    
+    if not response.choices or not response.choices[0].message:
+        return "No response from OpenAI"
+    # Return the content of the first choice
     return response.choices[0].message.content
 
 def extract_score_from_review(review: str) -> int:
@@ -159,8 +168,12 @@ def main(project_root: str, output_file: str):
     print("Reading files...")
     project_code = read_files(files)
 
+    print("Generating prompt...")
+    yaml = load_yaml_config('prompt.yaml')  # Load YAML config if needed, adjust as necessary
+    prompt = generate_prompt(yaml)  # Generate prompt based on YAML config
+    
     print("Sending to OpenAI API...")
-    review = analyze_code_with_openai(project_code)
+    review = analyze_code_with_openai(project_code,prompt)
 
     score = extract_score_from_review(review)
     print("Writing review to output...")
