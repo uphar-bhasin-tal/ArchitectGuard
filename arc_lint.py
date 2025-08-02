@@ -72,7 +72,7 @@ def read_files(file_paths: List[str]) -> str:
         try:
             with open(file, 'r') as f:
                 content = f"# File: {file}\n" + f.read()
-                count+=len()
+                count+=len(content)
                 if count>650000:
                     break
                 contents.append(content)
