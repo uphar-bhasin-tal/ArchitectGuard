@@ -45,11 +45,11 @@ Focus Areas:
 
 Output Format:
 - Architectural impact assessment (High/Medium/Low)
-- Pattern compliance checklist
-- Specific violations found (if any)
-- Recommended refactoring (if needed)
+- Pattern compliance checklist  with path and compliance description
+- Specific violations found (if any) with path and violation description
+- Recommended refactoring (if needed) with path and description
 - Long-term implications of the changes
-- Final architectural quality score (0-100)
+- Final architectural quality score (0-100) considering above mentioned core responsibilities 
 
 Remember: Good architecture enables change. Flag anything that makes future changes harder.
 """
@@ -67,10 +67,15 @@ def collect_project_files(root: str, exclude_dirs={"__pycache__", ".git", "venv"
 
 def read_files(file_paths: List[str]) -> str:
     contents = []
+    count = 0
     for file in file_paths:
         try:
             with open(file, 'r') as f:
-                contents.append(f"# File: {file}\n" + f.read())
+                content = f"# File: {file}\n" + f.read()
+                count+=len(content)
+                if count>650000:
+                    break
+                contents.append(content)
         except Exception as e:
             print(f"Warning: Could not read file {file}: {e}")
     return "\n\n".join(contents)
